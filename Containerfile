@@ -4,8 +4,8 @@ FROM fedora:40
 VOLUME /var/lib/containers
 
 RUN dnf -y install mock && \
-    dnf -y clean all
-
-RUN useradd mockbuilder -G mock
+    dnf -y clean all && \
+    useradd mockbuilder && \
+    usermod -a -G mock mockbuilder
 
 USER mockbuilder
