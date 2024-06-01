@@ -1,0 +1,19 @@
+#! /bin/sh -ex
+
+# Make sure 'qemu-user-static' is installed.
+
+set -e
+
+manifest=mock-container
+image=quay.io/praiskup/mock
+
+buildah bud \
+    --layers \
+    --jobs=2 \
+    --platform=linux/amd64 \
+    --platform=linux/s390x \
+    --platform=linux/ppc64le \
+    --platform=linux/arm64 \
+    --manifest=$manifest .
+
+buildah manifest push --all --format v2s2 "$manifest" "docker://$image"
