@@ -5,7 +5,7 @@
 set -e
 
 manifest=mock-container
-image=quay.io/praiskup/mock
+image=quay.io/praiskup/mock:`date -I`
 
 buildah bud \
     --layers \

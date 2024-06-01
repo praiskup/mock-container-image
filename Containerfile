@@ -7,5 +7,3 @@ RUN dnf -y install mock && \
     dnf -y clean all && \
     useradd mockbuilder && \
     usermod -a -G mock mockbuilder
-
-USER mockbuilder
