@@ -10,10 +10,10 @@ image=quay.io/praiskup/mock:$(git rev-parse HEAD)
 buildah bud \
     --layers \
     --jobs=2 \
-    --platform=linux/amd64 \
     --platform=linux/s390x \
     --platform=linux/ppc64le \
     --platform=linux/arm64 \
+    --platform=linux/amd64 \
     --manifest=$manifest .
 
 buildah manifest push --all --format v2s2 "$manifest" "docker://$image"
