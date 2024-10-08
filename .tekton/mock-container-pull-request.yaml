@@ -28,6 +28,12 @@ spec:
     value: 5d
   - name: dockerfile
     value: /Containerfile
+  - name: build-platforms
+    value:
+      - linux/x86_64
+      - linux/arm64
+      - linux/ppc64le
+      - linux/s390x
   pipelineRef:
     resolver: git
     params:
